@@ -1,5 +1,6 @@
 package com.example.android4a.presentation.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.loginLiveData.observe(this, Observer {
             when(it){
                 is LoginSuccess -> {
-
+                    val intent = Intent(this, Activity2::class.java)
+                    intent.putExtra("key", it.user)
+                    startActivity(intent)
                 }
                 LoginError -> {
                 MaterialAlertDialogBuilder(this)
@@ -37,6 +40,8 @@ class MainActivity : AppCompatActivity() {
             mainViewModel.onClickedLogin(login_edit.text.toString().trim(),password_edit.text.toString())
         }
 
-
+        create_account_button.setOnClickListener {
+            mainViewModel.onClickedCreateAccount(login_edit.text.toString().trim(), password_edit.text.toString(), getSupportFragmentManager())
+        }
     }
 }

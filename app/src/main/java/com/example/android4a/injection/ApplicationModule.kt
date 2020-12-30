@@ -1,7 +1,6 @@
 package com.example.android4a.injection
 
 import android.content.Context
-import androidx.room.Database
 import androidx.room.Room
 import com.example.android4a.data.local.AppDatabase
 import com.example.android4a.data.local.DatabaseDao
@@ -10,15 +9,18 @@ import com.example.android4a.domain.usecase.CreateUserUseCase
 import com.example.android4a.domain.usecase.GetUserUseCase
 import com.example.android4a.presentation.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
+import com.example.android4a.presentation.main.CreateViewModel
+import com.example.android4a.presentation.main.ViewModel2
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import java.lang.Appendable
-import java.security.AccessControlContext
 
 val presentationModule : Module = module {
-    factory { MainViewModel(get(),get()) }
-
+    factory { MainViewModel(get()) }
+    factory { CreateViewModel(get()) }
+    factory { ViewModel2(get()) }
     }
+
+
 val domainModule :Module = module {
 
     factory { CreateUserUseCase(get()) }
@@ -31,6 +33,7 @@ val dataModule : Module = module {
     single{ createDataBase(androidContext())}
     }
 
+
 fun createDataBase(context: Context): DatabaseDao{
         val appDatabase : AppDatabase  = Room.databaseBuilder(
         context,
@@ -38,4 +41,8 @@ fun createDataBase(context: Context): DatabaseDao{
     ).build()
         return appDatabase.databaseDao()
     }
+
+
+
+
 
