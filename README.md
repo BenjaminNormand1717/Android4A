@@ -22,13 +22,13 @@ Affiche les identifiants déjà renseigné dans les champs de l'écran précéde
 Demande un E-mail, un mot de passe ainsi qu'un nom et un prénom
 Une fois que tout est renseigné il n'y a plus qu'à appuyez sur le bouton création du compte pour créer son compte et revenir sur l'écran de connection.
 
-<img src="readmeImage/creation.jpg" width= 325> 
+<img src="mobile/creation.jpg" width= 325> 
 
 ### Troisième page - Connexion
 
 Une fois le compte créé, nous mettons l'identifiant et le mot de passe choisi juste avant dans la page de création. Puis nous cliquons sur "login" et cela nous amène sur la page de fin avec le récapitulatif de nos informations.
 
-<img src="readmeImage/accueil_donne.jpg" width= 325> <img src="readmeImage/fin.jpg" width= 325> 
+<img src="mobile/accueil_donne.jpg" width= 325> <img src="mobile/fin.jpg" width= 325> 
 
 
 
